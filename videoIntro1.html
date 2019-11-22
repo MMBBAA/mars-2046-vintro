@@ -1,0 +1,97 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>INTRO</title>
+
+	<style>
+		#backgroundvid {
+		 position: fixed;
+	    height: 100%;
+	    width: 100%;
+	    right: 0; bottom: 0;
+	    background-color: black;
+	}
+	#boton{
+		position: fixed;
+		bottom:5%;
+		right:48%;
+		background-color: red;
+		border-style: inset;
+		border-radius: 20%;
+		font-weight: 10px;
+	}
+
+	</style>
+
+	</head>
+	<body id="cuerpo">
+
+	<video muted autoplay loop  id="backgroundvid"> 
+
+	  <source src="VIDEO/intro_VP8.webm" type="video/webm"/>
+	</video>
+	<button id="boton">
+		SKIP
+	</button>
+
+
+	<script>
+		var ok=true;
+
+	  		document.getElementById("cuerpo").addEventListener("click", reproducir);
+	  		document.getElementById("boton").addEventListener("click", enlace);
+	  
+	  	function reproducir(){
+
+	  			document.removeEventListener('click',reproducir);
+
+	  		var sonido=new Audio("AUDIO/intro.mp3");
+	  	
+	  	if(ok){
+	  	sonido.play();
+	  }
+	  	ok=false;
+	  	}
+
+	  	function enlace(){
+	  		
+	  		window.location.href="interfaz1.html";
+	  	}
+	</script>
+
+	  <script>
+	  	  	
+	    window.onerror=new Function("return true");
+
+	    function fullscr(){
+	      if(document.documentElement.requestFullscreen){document.documentElement.requestFullscreen()}
+	        if(document.documentElement.msRequestFullscreen){document.documentElement.msRequestFullscreen()}
+	          if(document.documentElement.mozRequestFullScreen){document.documentElement.mozRequestFullScreen()}
+	            if(document.documentElement.webkitRequestFullScreen){document.documentElement.webkitRequestFullScreen()}
+	              if(typeof window.ActiveXObject !== "undefined"){
+	                var wscript = new ActiveXObject("WScript.Shell");
+	                if(wscript !== null){wscript.SendKeys("{F11}")}
+	              }
+	          }
+
+	    function fullcls(){
+	      if(document.exitFullscreen){document.exitFullscreen()}
+	        if(document.msExitFullscreen){document.msExitFullscreen()}
+	          if(document.mozCancelFullScreen){document.mozCancelFullScreen()}
+	            if(document.webkitCancelFullScreen){document.webkitCancelFullScreen()}
+	              if(typeof window.ActiveXObject !== "undefined"){
+	                var wscript = new ActiveXObject("WScript.Shell");
+	                if(wscript !== null) {wscript.SendKeys("{F11}")}
+	              }
+	          }
+
+	    document.onkeydown=function(e){
+	      e = e ? e : window.event;
+	      if(e.keyCode==13){fullscr();return false;}
+	      if(e.keyCode==27){fullcls();return false;}
+	    }
+	</script>
+
+	</body>
+	</html>
